@@ -7,9 +7,11 @@ const { notFound, errorHandler } = require("./Middleware/Error");
 require("dotenv").config();
 connectDatabase();
 const app = express();
+app.use(express.json());
 
 //API
 app.use("/api/import", usersRouter);
+app.use("/api/users", usersRouter);
 app.use("/api/import", productsRouter);
 app.use("/api/products", productsRouter);
 
