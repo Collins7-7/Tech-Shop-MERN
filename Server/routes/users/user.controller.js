@@ -1,5 +1,6 @@
 const usersDatabase = require("../../models/users.model");
 const users = require("../../data/users");
+const { generateToken } = require("../../utils/generateToken");
 
 async function httpPostUsers(req, res) {
   await usersDatabase.deleteMany({});
@@ -17,7 +18,7 @@ async function httpUserLogin(req, res) {
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
-      token: null,
+      token: generateToken(user._id),
       createdAt: user.createdAt,
     });
   } else {
