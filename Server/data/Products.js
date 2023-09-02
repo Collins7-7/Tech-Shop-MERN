@@ -20,7 +20,6 @@ const products = [
     numReviews: 2,
   },
   {
-    _id: "3",
     name: "Sesame Street Unisex-Child ELMO Puppet Slipper",
     image: "/images/4.png",
     description:
