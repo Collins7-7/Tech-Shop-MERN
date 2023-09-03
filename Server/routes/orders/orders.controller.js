@@ -1,5 +1,6 @@
 const ordersDatabase = require("../../models/orders.model");
 
+//CREATE ORDER
 async function httpPostOrder(req, res) {
   const {
     orderItems,
@@ -17,6 +18,7 @@ async function httpPostOrder(req, res) {
   } else {
     const order = new ordersDatabase({
       orderItems,
+      user: req.user._id,
       shippingAddress,
       paymentMethod,
       itemsPrice,
@@ -30,6 +32,22 @@ async function httpPostOrder(req, res) {
   }
 }
 
+// GET SINGLE ORDER
+
+async function httpGetOrderById() {
+  const order = await ordersDatabase
+    .findById(req.params.id)
+    .populate("user", "name", "email");
+
+  if (order) {
+    res.json(order);
+  } else {
+    res.status(404);
+    throw new Error("Order Not Found");
+  }
+}
+
 module.exports = {
   httpPostOrder,
+  httpGetOrderById,
 };
