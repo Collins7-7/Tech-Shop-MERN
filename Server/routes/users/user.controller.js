@@ -28,6 +28,38 @@ async function httpUserLogin(req, res) {
   }
 }
 
+//REGISTER
+
+async function httpRegisterUser(req, res) {
+  const { name, email, password } = req.body;
+  const userExists = await usersDatabase.findOne({ email });
+
+  if (userExists) {
+    res.status(400);
+    throw new Error("User already exists");
+  }
+
+  const user = await usersDatabase.create({
+    name,
+    email,
+    password,
+  });
+
+  if (user) {
+    res.status(201).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+      token: generateToken(user._id),
+      createdAt: user.createdAt,
+    });
+  } else {
+    res.status(400);
+    throw new Error("Invalid user credentials");
+  }
+}
+
 //PROFILE
 async function httpUserProfile(req, res) {
   console.log(req.user);
@@ -52,4 +84,5 @@ module.exports = {
   httpPostUsers,
   httpUserLogin,
   httpUserProfile,
+  httpRegisterUser,
 };
