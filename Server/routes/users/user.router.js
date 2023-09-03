@@ -4,6 +4,7 @@ const {
   httpUserLogin,
   httpUserProfile,
   httpRegisterUser,
+  httpUpadateProfile,
 } = require("./user.controller");
 const asyncHandler = require("express-async-handler");
 
@@ -15,6 +16,7 @@ usersRouter.post("/user", asyncHandler(httpPostUsers));
 usersRouter.post("/login", asyncHandler(httpUserLogin));
 usersRouter.get("/profile", protect, asyncHandler(httpUserProfile));
 usersRouter.post("/", asyncHandler(httpRegisterUser));
+usersRouter.put("/profile", protect, asyncHandler(httpUpadateProfile));
 
 module.exports = {
   usersRouter,

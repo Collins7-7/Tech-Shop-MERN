@@ -63,7 +63,7 @@ async function httpRegisterUser(req, res) {
 //PROFILE
 async function httpUserProfile(req, res) {
   console.log(req.user);
-  const user = await usersDatabase.findById(req.user.id);
+  const user = await usersDatabase.findById(req.user._id);
 
   if (user) {
     res.json({
@@ -80,9 +80,35 @@ async function httpUserProfile(req, res) {
   }
 }
 
+//UPDATE PROFILE
+async function httpUpadateProfile(req, res) {
+  const user = await usersDatabase.findById(req.user._id);
+
+  if (user) {
+    user.name = req.body.name || user.name;
+    user.email = req.body.email || user.email;
+    if (req.body.password) {
+      user.password = req.body.password;
+    }
+    const updatedUser = await user.save();
+    res.json({
+      _id: updatedUser._id,
+      name: updatedUser.name,
+      email: updatedUser.email,
+      isAdmin: updatedUser.isAdmin,
+      token: generateToken(updatedUser._id),
+      createdAt: updatedUser.createdAt,
+    });
+  } else {
+    res.status(404);
+    throw new Error("User not found");
+  }
+}
+
 module.exports = {
   httpPostUsers,
   httpUserLogin,
   httpUserProfile,
   httpRegisterUser,
+  httpUpadateProfile,
 };
