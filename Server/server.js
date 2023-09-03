@@ -3,6 +3,7 @@ const { connectDatabase } = require("./config/mongoDb");
 const { usersRouter } = require("./routes/users/user.router");
 const { productsRouter } = require("./routes/products/product.router");
 const { notFound, errorHandler } = require("./Middleware/Error");
+const { orderRouter } = require("./routes/orders/orders.router");
 
 require("dotenv").config();
 connectDatabase();
@@ -14,6 +15,7 @@ app.use("/api/import", usersRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/import", productsRouter);
 app.use("/api/products", productsRouter);
+app.use("/api/orders", orderRouter);
 
 //ERROR HANDLERS
 
