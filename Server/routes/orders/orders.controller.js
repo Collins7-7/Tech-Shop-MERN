@@ -66,9 +66,17 @@ async function httpOrderPaid(req, res) {
     throw new Error("Order not found");
   }
 }
+// USER LOGIN ORDERS
+async function httpUserOrders(req, res) {
+  const order = await ordersDatabase
+    .find({ user: req.user._id })
+    .sort({ _id: -1 });
+  res.json(order);
+}
 
 module.exports = {
   httpPostOrder,
   httpGetOrderById,
   httpOrderPaid,
+  httpUserOrders,
 };
