@@ -1,4 +1,4 @@
-const ordersDatabase = require("../../models/orders.model");
+const Order = require("../../models/orders.model");
 
 //CREATE ORDER
 async function httpPostOrder(req, res) {
@@ -16,7 +16,7 @@ async function httpPostOrder(req, res) {
     res.status(400);
     throw new Error("No order items");
   } else {
-    const order = new ordersDatabase({
+    const order = new Order({
       orderItems,
       user: req.user._id,
       shippingAddress,
@@ -26,7 +26,6 @@ async function httpPostOrder(req, res) {
       shippingPrice,
       totalPrice,
     });
-
     const createOrder = await order.save();
     res.status(201).json(createOrder);
   }
@@ -34,10 +33,11 @@ async function httpPostOrder(req, res) {
 
 // GET SINGLE ORDER
 
-async function httpGetOrderById() {
-  const order = await ordersDatabase
-    .findById(req.params.id)
-    .populate("user", "name", "email");
+async function httpGetOrderById(req, res) {
+  const order = await Order.findById(req.params.id).populate(
+    "user",
+    "name email"
+  );
 
   if (order) {
     res.json(order);
@@ -48,7 +48,7 @@ async function httpGetOrderById() {
 }
 //ORDER PAID
 async function httpOrderPaid(req, res) {
-  const order = await ordersDatabase.findById(req.params.id);
+  const order = await Order.findById(req.params.id);
 
   if (order) {
     order.isPaid = true;
@@ -68,9 +68,7 @@ async function httpOrderPaid(req, res) {
 }
 // USER LOGIN ORDERS
 async function httpUserOrders(req, res) {
-  const order = await ordersDatabase
-    .find({ user: req.user._id })
-    .sort({ _id: -1 });
+  const order = await Order.find({ user: req.user._id }).sort({ _id: -1 });
   res.json(order);
 }
 

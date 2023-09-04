@@ -1,17 +1,18 @@
 const products = [
   {
-    name: "Velcro Ballerinas For Girls  (Pink)",
-    image: "/images/6.png",
+    name: "ThinkBook 15 Gen 4 (lenovo)",
+    image: "/images/1.png",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
-    price: 89,
+    price: 350,
     countInStock: 3,
     rating: 4,
     numReviews: 4,
   },
   {
-    name: "Velcro Sneakers For Boys & Girls  (Blue)",
-    image: "/images/5.png",
+    name: "Google Pixel 7  (blue)",
+    image: "/images/4.png",
+
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
     price: 599,
@@ -20,41 +21,41 @@ const products = [
     numReviews: 2,
   },
   {
-    name: "Sesame Street Unisex-Child ELMO Puppet Slipper",
-    image: "/images/4.png",
+    name: "Samsung Galaxy S22 Ultra",
+    image: "/images/2.png",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
-    price: 929,
+    price: 450,
     countInStock: 0,
     rating: 3.5,
     numReviews: 3,
   },
   {
-    name: "Lace Casual Boots For Boys & Girls  (Tan)",
-    image: "/images/3.png",
+    name: "Drone Dji Mini 3 Fly",
+    image: "/images/6.png",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
-    price: 399,
+    price: 480,
     countInStock: 10,
     rating: 5,
     numReviews: 9,
   },
   {
-    name: "Lace Walking Shoes For Boys & Girls  (Pink)",
-    image: "/images/2.png",
+    name: "Iphone 13 Pro (13)",
+    image: "/images/3.png",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
-    price: 49,
+    price: 500,
     countInStock: 7,
     rating: 2,
     numReviews: 2,
   },
   {
-    name: "Women Red Heels Sandal",
-    image: "/images/1.png",
+    name: "2019 Apple MacBook Pro",
+    image: "/images/5.png",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
-    price: 29,
+    price: 300,
     countInStock: 0,
     rating: 0,
     numReviews: 0,

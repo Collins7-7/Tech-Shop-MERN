@@ -1,3 +1,3 @@
-const ordersDatabase = require("./orders.mongo");
+const Order = require("./orders.mongo");
 
-module.exports = ordersDatabase;
+module.exports = Order;
