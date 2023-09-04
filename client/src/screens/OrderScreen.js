@@ -27,7 +27,7 @@ const OrderScreen = ({ match }) => {
     };
 
     order.itemsPrice = addDecimals(
-      order.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0)
+      order?.orderItems?.reduce((acc, item) => acc + item.price * item.qty, 0)
     );
   }
 
