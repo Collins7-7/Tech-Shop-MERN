@@ -1,0 +1,26 @@
+{
+  "name": "tech-shop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install-server": "npm install --prefix server",
+    "install-client": "npm install --prefix client",
+    "install": "npm run install-server && npm run install-client",
+    "client": "npm start --prefix client",
+    "server": "npm start --prefix server",
+    "shop": "npm run server & npm run client",
+    "deploy": "npm run build --prefix client  && npm start --prefix server & npm start --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Collins7-7/Tech-Shop-MERN.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Collins7-7/Tech-Shop-MERN/issues"
+  },
+  "homepage": "https://github.com/Collins7-7/Tech-Shop-MERN#readme"
+}
