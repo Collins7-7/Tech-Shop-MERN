@@ -4,6 +4,7 @@ const { usersRouter } = require("./routes/users/user.router");
 const { productsRouter } = require("./routes/products/product.router");
 const { notFound, errorHandler } = require("./Middleware/Error");
 const { orderRouter } = require("./routes/orders/orders.router");
+const path = require("path");
 require("dotenv").config();
 
 const app = express();
@@ -21,6 +22,11 @@ app.get("/api/config/paypal", (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID);
 });
 
+app.use(express.static(path.join(__dirname, "public")));
+
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 //ERROR HANDLERS
 
 app.use(notFound);
