@@ -16,7 +16,7 @@ const products = [
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
     price: 599,
-    countInStock: 10,
+    countInStock: 0,
     rating: 2,
     numReviews: 2,
   },
@@ -35,7 +35,7 @@ const products = [
     image: "/images/6.png",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
-    price: 480,
+    price: 1,
     countInStock: 10,
     rating: 5,
     numReviews: 9,
@@ -56,9 +56,9 @@ const products = [
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
     price: 300,
-    countInStock: 0,
-    rating: 0,
-    numReviews: 0,
+    countInStock: 2,
+    rating: 3,
+    numReviews: 3,
   },
 ];
 
